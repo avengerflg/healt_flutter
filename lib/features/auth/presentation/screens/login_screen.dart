@@ -4,7 +4,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:animate_do/animate_do.dart';
 import '../../providers/auth_provider.dart';
 import '../widgets/custom_text_field.dart';
-import '../widgets/social_login_button.dart';
 import 'sign_up_screen.dart';
 import 'forgot_password_screen.dart';
 import '../../../home/presentation/screens/home_screen.dart';
@@ -79,7 +78,7 @@ class _LoginScreenState extends State<LoginScreen> with SingleTickerProviderStat
                     ),
                     const SizedBox(width: 16),
                     Text(
-                      'MediCare',
+                      'MediCalse',
                       style: Theme.of(context).textTheme.displaySmall?.copyWith(
                         fontWeight: FontWeight.bold,
                         color: const Color.fromARGB(255, 34, 127, 233),

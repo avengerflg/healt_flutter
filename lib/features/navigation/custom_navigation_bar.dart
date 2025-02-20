@@ -1,34 +1,38 @@
-import 'package:flutter/material.dart';
+// lib/navigation/custom_navigation_bar.dart
+
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:flutter/material.dart';
+import 'package:health_and_pharmacy_app/core/themes/app_theme.dart';
 
 class CustomNavigationBar extends StatelessWidget {
-  final GlobalKey<CurvedNavigationBarState>? bottomNavigationKey;
+  final GlobalKey<CurvedNavigationBarState> bottomNavigationKey;
+  final int selectedIndex;
   final Function(int) onTap;
-  final int selectedIndex; // Add selectedIndex to manage active state
 
   const CustomNavigationBar({
-    super.key,
-    this.bottomNavigationKey,
+    Key? key,
+    required this.bottomNavigationKey,
+    required this.selectedIndex,
     required this.onTap,
-    required this.selectedIndex, // Required parameter
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return CurvedNavigationBar(
       key: bottomNavigationKey,
-      backgroundColor: Colors.white,
-      color: Colors.blueAccent,
-      buttonBackgroundColor: Colors.blueAccent,
-      animationDuration: const Duration(milliseconds: 300),
-      items: [
-        Icon(Icons.home_outlined, size: selectedIndex == 0 ? 50 : 28),
-        Icon(Icons.calendar_month_outlined, size: selectedIndex == 1 ? 50 : 28),
-        Icon(Icons.filter_b_and_w_rounded, size: selectedIndex == 2 ? 50 : 28),
-        Icon(Icons.notifications_outlined, size: selectedIndex == 3 ? 50 : 28),
-        Icon(Icons.perm_identity, size: selectedIndex == 4 ? 50 : 28),
+      backgroundColor: AppTheme.backgroundColor,
+      color: AppTheme.primaryColor,
+      buttonBackgroundColor: AppTheme.primaryColor,
+      height: 60,
+      items: const <Widget>[
+        Icon(Icons.home, size: 30, color: Colors.white),
+        Icon(Icons.calendar_today, size: 30, color: Colors.white),
+        Icon(Icons.medical_services, size: 30, color: Colors.white),
+        Icon(Icons.person, size: 30, color: Colors.white),
       ],
       onTap: onTap,
+      animationDuration: Duration(milliseconds: 300),
+      animationCurve: Curves.easeInOut,
     );
   }
 }
